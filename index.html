@@ -1,31 +1,23 @@
 <!DOCTYPE html>
-<html lang="th">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>shop wisaitadn</title>
-    <style>
-        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; }
-        iframe { width: 100%; height: 100%; border: none; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
-    <iframe id="myIframe"></iframe>
 
-    <script>
-        
-        const urlParams = new URLSearchParams(window.location.search);
-        const shopValue = urlParams.get('shop');
+<script>
+const urlParams = new URLSearchParams(window.location.search);
+const shopValue = urlParams.get("shop");
 
-        
-        let scriptUrl = "https://script.google.com/macros/s/AKfycbywlIYXl8o1gTWrQeVcRIOECv5QYl6phBg9ysfOScysIXaB2uil7BIfv92lTIEbPAmZng/exec";
+let scriptUrl = "https://script.google.com/macros/s/AKfycbywlIYXl8o1gTWrQeVcRIOECv5QYl6phBg9ysfOScysIXaB2uil7BIfv92lTIEbPAmZng/exec";
 
-        
-        if (shopValue) {
-            scriptUrl += "?shop=" + shopValue; 
-        }
+if (shopValue) {
+    scriptUrl += "?shop=" + encodeURIComponent(shopValue);
+}
 
-                document.getElementById('myIframe').src = scriptUrl;
-    </script>
+window.location.replace(scriptUrl);
+</script>
+
 </body>
 </html>
